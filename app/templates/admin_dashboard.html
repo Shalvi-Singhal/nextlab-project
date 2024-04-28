@@ -1,0 +1,57 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+<style media="screen">
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+body {
+font-family: serif;
+background: #f2f2f2;
+background-color: lightblue;
+}
+.login {
+width: 330px;
+height: 250px;
+background: #fff;
+color: #000;
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+padding: 40px 30px;
+}
+
+.login h1 {
+margin: 0;
+padding: 0 0 30px;
+text-align: center;
+font-size: 22px;
+}
+.user {
+	margin: 0;
+	padding: 280px 550px;
+	text-align: center;
+	font-size: 20px;
+	position:relative;
+
+</style>
+<div class="login">
+	<h1>Available Apps</h1>
+</div>
+        <div class="user">
+            <ul>
+        {% for app in apps %}
+            <li>{{ app.name }}- {{ app.points }} points</li>
+        {% empty %}
+            <li>No apps available.</li>
+        {% endfor %}
+            </ul>
+        <a href = "{% url 'add_app' %}"<button> add app</button></a>
+</div>
+{% endblock %}

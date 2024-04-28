@@ -1,0 +1,61 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+<style media="screen">
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: Serif;
+background: #f2f2f2;
+background-color: pink;
+}
+.logout-box {
+width: 320px;
+height: 320px;
+background: #fff;
+color: #000;
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%, -50%);
+box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+padding: 70px 30px;
+}
+
+.logout-box h1 {
+margin: 0;
+padding: 0 0 20px;
+text-align: center;
+font-size: 22px;
+
+}
+.user-box {
+	margin: 0;
+	padding: 250px 20px;
+	text-align: center;
+	font-size: 22px;
+	position:relative;
+}
+
+
+</style>
+    <div class="logout-box">
+	<h1>Logout</h1>
+</div>
+<div class="user-box">
+    <form method="post">
+        {%csrf_token%}
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter Username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter Username" name="password"><br><br>
+        <input type="submit" value="Logout">
+
+    </form>
+</div>
+
+{% endblock %}

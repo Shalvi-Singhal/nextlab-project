@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  }
+
+  body {
+  font-family: Serif;
+  background: #f2f2f2;
+  background-color: lightblue;
+  }
+  .signup{
+  width: 420px;
+  height: 320px;
+  background: lightblue;
+  color: #000;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  padding: 70px 30px;
+  }
+  .signup h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+.user {
+	margin: 0;
+	padding: 250px 20px;
+	text-align: center;
+	font-size: 22px;
+	position:relative;
+}
+.nav-link{
+ position: 1200px,70px;
+  left: 1200px;
+  top: 70px;
+}
+
+  </style>
+
+<a class="nav-link" href="/logout"><button type="button" class="btn btn-danger">Logout</button></a>
+
+  <div class="signup">
+  <h1>Welcome <strong>{{ user }}</strong>!</h1>
+  </div>
+<div class="user">
+    <p>You have {{ user.points }} points and have completed {{ user.tasks_completed.count }} tasks.</p>
+    <a href="{% url 'apps_list' %}">View available apps</a>
+  </div>
+{% endblock %}
